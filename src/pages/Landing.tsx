@@ -6,11 +6,11 @@ import { RequestFormCTA } from '../components/RequestFormCTA';
 
 export const Landing = () => {
   return (
-    <main className="w-full flex flex-col items-center">
-      <Hero />
-      <Intro />
-      <QueueGrid />
-      <RequestFormCTA />
+    <main className="w-full flex flex-col items-center overflow-x-hidden">
+      <div id="inicio" className="w-full"><Hero /></div>
+      <div id="intro" className="w-full"><Intro /></div>
+      <div id="cola" className="w-full"><QueueGrid /></div>
+      <div id="pedir" className="w-full"><RequestFormCTA /></div>
     </main>
   );
 };

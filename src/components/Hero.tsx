@@ -21,11 +21,10 @@ export const Hero = () => {
           <div className="font-grotesk text-[16px] uppercase tracking-wide">Kanturno.App</div>
           
           <nav className="hidden lg:flex items-center gap-8 liquid-glass rounded-[28px] px-[52px] py-[24px]">
-            {['Inicio', 'Cola', 'Pedir Canción', 'FAQ', 'Admin'].map(link => (
-              <a key={link} href="#" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">
-                {link}
-              </a>
-            ))}
+            <a href="#inicio" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Inicio</a>
+            <a href="#cola" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Cola</a>
+            <a href="#pedir" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Pedir Canción</a>
+            <a href="/admin" className="font-grotesk text-[13px] uppercase text-neon/80 hover:text-neon transition-colors">Admin</a>
           </nav>
           
           <div className="w-[100px] hidden lg:block" /> {/* Spacer */}
@@ -42,15 +41,19 @@ export const Hero = () => {
             </span>
           </h1>
 
-          {/* Mobile Socials */}
-          <div className="flex lg:hidden gap-4 mt-8 justify-center">
-            <SocialButtons />
+          {/* Mobile CTA */}
+          <div className="flex lg:hidden mt-8 justify-start">
+            <a href="#pedir" className="bg-neon text-black font-grotesk text-[18px] uppercase px-8 py-4 rounded-[16px] hover:bg-white transition-colors">
+              Pedir Canción Ahora
+            </a>
           </div>
         </div>
 
-        {/* Desktop Socials */}
+        {/* Desktop CTA Floating */}
         <div className="hidden lg:flex flex-col gap-4 absolute right-12 top-1/2 -translate-y-1/2">
-          <SocialButtons />
+          <a href="#pedir" className="w-[80px] h-[80px] liquid-glass rounded-full flex flex-col items-center justify-center hover:bg-neon hover:text-black transition-colors text-white group">
+            <span className="font-grotesk text-[10px] uppercase text-center leading-tight">Pedir<br/>Canción</span>
+          </a>
         </div>
       </div>
     </section>
