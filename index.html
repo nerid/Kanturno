@@ -1,86 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Kanturno - Turnos justos para karaoke</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <span class="logo-icon">🎤</span>
-                <h1>Kanturno</h1>
-            </div>
-            <p class="subtitle">Turnos justos para karaoke</p>
-        </header>
-
-        <main>
-            <!-- Turno actual -->
-            <section class="turno-actual-section">
-                <h2>Turno actual</h2>
-                <div id="turnoActualContainer" class="turno-card premium-card">
-                    <div class="empty-turno-message">
-                        <p>No hay ninguna canción en curso</p>
-                        <p class="small">Agrega una solicitud para comenzar</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Próximas canciones -->
-            <section class="cola-section">
-                <h2>Próximas canciones</h2>
-                <div id="colaContainer" class="cola-list">
-                    <div class="empty-cola-message">
-                        <p>📭 Cola vacía</p>
-                        <p class="small">Solicita una canción para aparecer aquí</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Formulario de solicitud -->
-            <section class="formulario-section">
-                <h2>Solicitar canción</h2>
-                <form id="solicitudForm" class="premium-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nombreCantante">Nombre del cantante</label>
-                            <input type="text" id="nombreCantante" name="nombreCantante" required placeholder="Ej: Laura">
-                        </div>
-                        <div class="form-group">
-                            <label for="mesa">Número de mesa</label>
-                            <input type="number" id="mesa" name="mesa" required min="1" placeholder="1">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        </div>
-                        <div class="form-group">
-                            <label for="cancion">Canción</label>
-                            <input type="text" id="cancion" name="cancion" required placeholder="Ej: Como la flor">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="interprete">Intérprete original</label>
-                            <input type="text" id="interprete" name="interprete" required placeholder="Ej: Selena">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-primary">Enviar solicitud</button>
-                </form>
-                <div id="mensajeFormulario" class="mensaje-flotante"></div>
-            </section>
-
-        </main>
-
-        <footer>
-            <p>Kanturno · Turno justo dinámico · <span id="timestampActualizacion"></span></p>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>temp-app</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

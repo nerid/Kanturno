@@ -1,41 +1,73 @@
-# Kanturno - Turnos justos para karaoke
+# React + TypeScript + Vite
 
-🎤 Sistema completo de gestión de turnos para karaoke con algoritmo de prioridad justa.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## ✨ Características
+Currently, two official plugins are available:
 
-- **Algoritmo dinámico** basado en:
-  - Tiempo de espera
-  - Número de personas por mesa
-  - Canciones ya cantadas por el grupo
-- **Máximo 3 canciones por mesa** en cola
-- **Efecto swoosh** al cambiar de turno
-- **Interfaz premium** con modo oscuro/claro automático
-- **Persistencia local** (recarga la página y no pierdes la cola)
-- **Simulación automática** de duración de canciones (5 segundos para demo)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🚀 Despliegue en Netlify + GitHub
+## React Compiler
 
-1. **Clona este repositorio** en GitHub
-2. **Ve a [Netlify](https://netlify.com)** y haz clic en "New site from Git"
-3. **Conecta tu repositorio de GitHub**
-4. **Configuración:**
-   - Build command: (dejar vacío)
-   - Publish directory: `.`
-5. **Haz clic en "Deploy site"**
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Listo. Tu Kanturno estará vivo en `https://tu-app.netlify.app`
+## Expanding the ESLint configuration
 
-## 🛠️ Personalización
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Edita las constantes en `script.js`:
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-```javascript
-const MAX_CANCIONES_POR_MESA = 3;   // Máximo por grupo
-const ALPHA = 0.1;                 // Peso por número de personas
-const BETA = 0.2;                  // Penalización por cantar mucho
-const DURACION_SIMULADA_CANCION_SEGUNDOS = 5;  // Duración demo
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
----
-Creado por Datatester con ❤️ para karaokes justos.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

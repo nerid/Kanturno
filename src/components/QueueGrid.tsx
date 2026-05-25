@@ -1,0 +1,78 @@
+import React from 'react';
+import { ChevronRight } from 'lucide-react';
+
+const mockQueue = [
+  { id: 1, cantante: 'Laura', cancion: 'Como la flor', prioridad: '9.8', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_053923_22c0a6a5-313c-474c-85ff-3b50d25e944a.mp4' },
+  { id: 2, cantante: 'Carlos', cancion: 'Bohemian Rhapsody', prioridad: '8.5', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_054411_511c1b7a-fb2f-42ef-bf6c-32c0b1a06e79.mp4' },
+  { id: 3, cantante: 'Ana', cancion: 'I Will Survive', prioridad: '7.2', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055427_ac7035b5-9f3b-4289-86fc-941b2432317d.mp4' }
+];
+
+export const QueueGrid = () => {
+  return (
+    <section className="w-full bg-[#010828] py-16 md:py-24 flex justify-center">
+      <div className="w-full max-w-[1831px] px-6 md:px-12 flex flex-col gap-16">
+        
+        {/* Header Row */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          
+          <h2 className="font-grotesk text-[32px] sm:text-[48px] lg:text-[60px] uppercase leading-tight">
+            Lista de<br />
+            <div className="ml-12 sm:ml-24 md:ml-32 flex items-baseline gap-4">
+              <span className="font-condiment text-neon normal-case" style={{ textTransform: 'none' }}>Karaoke</span>
+              <span>songs</span>
+            </div>
+          </h2>
+
+          <div className="flex flex-col items-start md:items-end">
+            <div className="flex items-center gap-4">
+              <span className="font-grotesk text-[32px] sm:text-[48px] lg:text-[60px] uppercase">VER</span>
+              <div className="flex flex-col">
+                <span className="font-grotesk text-[20px] sm:text-[28px] lg:text-[36px] uppercase leading-none">TODA</span>
+                <span className="font-grotesk text-[20px] sm:text-[28px] lg:text-[36px] uppercase leading-none">LA COLA</span>
+              </div>
+            </div>
+            <div className="w-full h-[6px] sm:h-[8px] lg:h-[10px] bg-neon mt-2" />
+          </div>
+
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+          {mockQueue.map(item => (
+            <div key={item.id} className="liquid-glass rounded-[32px] p-[18px] hover:bg-white/10 transition-colors group">
+              <div className="relative w-full pb-[100%] rounded-[24px] overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={item.video}
+                />
+                
+                {/* Overlay Text */}
+                <div className="absolute inset-x-0 top-6 px-6 z-10">
+                  <h3 className="font-grotesk text-2xl uppercase shadow-black drop-shadow-md">{item.cantante}</h3>
+                  <p className="font-mono text-sm opacity-90 drop-shadow-md uppercase">{item.cancion}</p>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="absolute bottom-4 inset-x-4 liquid-glass rounded-[20px] px-5 py-4 flex items-center justify-between z-10">
+                  <div className="flex flex-col">
+                    <span className="font-mono text-[11px] text-cream/70 uppercase">PRIORIDAD:</span>
+                    <span className="font-mono text-[16px] font-bold">{item.prioridad}/10</span>
+                  </div>
+                  
+                  <button className="w-[48px] h-[48px] rounded-full bg-gradient-to-br from-[#b724ff] to-[#7c3aed] flex items-center justify-center shadow-lg shadow-purple-500/50 group-hover:scale-110 transition-transform">
+                    <ChevronRight className="w-6 h-6 text-white" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
