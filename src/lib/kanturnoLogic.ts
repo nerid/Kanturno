@@ -49,7 +49,7 @@ export function useKanturnoData() {
   }, []);
 
   const getSolicitudesOrdenadas = () => {
-    const arr = Object.keys(solicitudes).map(key => ({ id: key, ...solicitudes[key] }));
+    const arr = Object.keys(solicitudes).map(key => ({ ...solicitudes[key], id: key }));
     const enCola = arr.filter(s => s.estado === 'en_cola');
     
     enCola.forEach(s => {

@@ -13,7 +13,13 @@ const firebaseConfig = {
   appId: "APP_ID"
 };
 
-let app, db, auth;
+import { FirebaseApp } from 'firebase/app';
+import { Database } from 'firebase/database';
+import { Auth } from 'firebase/auth';
+
+let app: FirebaseApp | undefined;
+let db: Database | undefined;
+let auth: Auth | undefined;
 
 try {
   app = initializeApp(firebaseConfig);
