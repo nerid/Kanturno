@@ -1,13 +1,23 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useKanturnoData } from '../lib/kanturnoLogic';
 
-const mockQueue = [
-  { id: 1, cantante: 'Laura', cancion: 'Como la flor', prioridad: '9.8', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_053923_22c0a6a5-313c-474c-85ff-3b50d25e944a.mp4' },
-  { id: 2, cantante: 'Carlos', cancion: 'Bohemian Rhapsody', prioridad: '8.5', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_054411_511c1b7a-fb2f-42ef-bf6c-32c0b1a06e79.mp4' },
-  { id: 3, cantante: 'Ana', cancion: 'I Will Survive', prioridad: '7.2', video: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055427_ac7035b5-9f3b-4289-86fc-941b2432317d.mp4' }
+const mockVideos = [
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_053923_22c0a6a5-313c-474c-85ff-3b50d25e944a.mp4',
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_054411_511c1b7a-fb2f-42ef-bf6c-32c0b1a06e79.mp4',
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055427_ac7035b5-9f3b-4289-86fc-941b2432317d.mp4'
 ];
 
 export const QueueGrid = () => {
+  const { getSolicitudesOrdenadas } = useKanturnoData();
+  const queue = getSolicitudesOrdenadas();
+  
+  // Si no hay datos, mostrar ejemplo visual (mock fallback)
+  const displayQueue = queue.length > 0 ? queue : [
+    { id: 'm1', nombre_cantante: 'Laura', cancion: 'Como la flor', prioridad: 9.8, video_idx: 0 },
+    { id: 'm2', nombre_cantante: 'Carlos', cancion: 'Bohemian Rhapsody', prioridad: 8.5, video_idx: 1 },
+    { id: 'm3', nombre_cantante: 'Ana', cancion: 'I Will Survive', prioridad: 7.2, video_idx: 2 }
+  ];
   return (
     <section className="w-full bg-[#010828] py-16 md:py-24 flex justify-center">
       <div className="w-full max-w-[1831px] px-6 md:px-12 flex flex-col gap-16">
@@ -38,7 +48,10 @@ export const QueueGrid = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
-          {mockQueue.map(item => (
+          {displayQueue.map((item, idx) => {
+            const vidUrl = (item as any).video_idx !== undefined ? mockVideos[(item as any).video_idx] : mockVideos[idx % 3];
+            
+            return (
             <div key={item.id} className="liquid-glass rounded-[32px] p-[18px] hover:bg-white/10 transition-colors group">
               <div className="relative w-full pb-[100%] rounded-[24px] overflow-hidden">
                 <video
@@ -47,12 +60,12 @@ export const QueueGrid = () => {
                   muted
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
-                  src={item.video}
+                  src={vidUrl}
                 />
                 
                 {/* Overlay Text */}
                 <div className="absolute inset-x-0 top-6 px-6 z-10">
-                  <h3 className="font-grotesk text-2xl uppercase shadow-black drop-shadow-md">{item.cantante}</h3>
+                  <h3 className="font-grotesk text-2xl uppercase shadow-black drop-shadow-md">{item.nombre_cantante}</h3>
                   <p className="font-mono text-sm opacity-90 drop-shadow-md uppercase">{item.cancion}</p>
                 </div>
 
@@ -60,7 +73,7 @@ export const QueueGrid = () => {
                 <div className="absolute bottom-4 inset-x-4 liquid-glass rounded-[20px] px-5 py-4 flex items-center justify-between z-10">
                   <div className="flex flex-col">
                     <span className="font-mono text-[11px] text-cream/70 uppercase">PRIORIDAD:</span>
-                    <span className="font-mono text-[16px] font-bold">{item.prioridad}/10</span>
+                    <span className="font-mono text-[16px] font-bold">{item.prioridad ? item.prioridad.toFixed(1) : '0.0'}/10</span>
                   </div>
                   
                   <button className="w-[48px] h-[48px] rounded-full bg-gradient-to-br from-[#b724ff] to-[#7c3aed] flex items-center justify-center shadow-lg shadow-purple-500/50 group-hover:scale-110 transition-transform">
@@ -69,7 +82,8 @@ export const QueueGrid = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

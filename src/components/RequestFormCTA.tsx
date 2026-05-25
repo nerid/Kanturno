@@ -1,8 +1,33 @@
 import React, { useState } from 'react';
 import { Mail, MessageCircle, Share2 } from 'lucide-react';
+import { agregarSolicitud } from '../lib/kanturnoLogic';
 
 export const RequestFormCTA = () => {
+  const [nombre, setNombre] = useState('');
+  const [cancion, setCancion] = useState('');
+  const [mensaje, setMensaje] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nombre || !cancion) return;
+    
+    setIsSubmitting(true);
+    // Asumiendo mesa 1 por defecto hasta que implementemos validación QR en otra parte
+    const res = await agregarSolicitud({
+      nombre_cantante: nombre,
+      cancion: cancion,
+      interprete: 'Desconocido', // Se podría agregar otro campo
+      id_mesa: '1'
+    });
+    
+    setMensaje(res.msj);
+    setIsSubmitting(false);
+    if(res.exito) {
+      setNombre('');
+      setCancion('');
+    }
+  };
 
   return (
     <section className="relative w-full flex justify-center bg-background overflow-hidden min-h-screen">
@@ -32,22 +57,30 @@ export const RequestFormCTA = () => {
             </h2>
           </div>
           
-          {/* Fake form for visuals */}
-          <div className="mt-8 liquid-glass p-6 rounded-[24px] max-w-md w-full backdrop-blur-md border border-white/10">
+          {/* Formulario */}
+          <form onSubmit={handleSubmit} className="mt-8 liquid-glass p-6 rounded-[24px] max-w-md w-full backdrop-blur-md border border-white/10">
+            {mensaje && <div className="text-neon font-mono mb-4 text-sm">{mensaje}</div>}
             <input 
               type="text" 
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
               placeholder="Nombre del cantante" 
               className="w-full bg-transparent border-b border-white/20 p-3 mb-4 font-mono text-sm focus:outline-none focus:border-neon transition-colors text-white uppercase"
             />
             <input 
               type="text" 
+              value={cancion}
+              onChange={(e) => setCancion(e.target.value)}
               placeholder="Canción" 
               className="w-full bg-transparent border-b border-white/20 p-3 mb-6 font-mono text-sm focus:outline-none focus:border-neon transition-colors text-white uppercase"
             />
-            <button className="w-full bg-neon text-[#010828] font-grotesk text-xl py-4 rounded-[16px] hover:bg-white transition-colors uppercase">
-              Enviar a la cola
+            <button 
+              disabled={isSubmitting}
+              type="submit"
+              className="w-full bg-neon text-[#010828] font-grotesk text-xl py-4 rounded-[16px] hover:bg-white transition-colors uppercase disabled:opacity-50">
+              {isSubmitting ? 'ENVIANDO...' : 'Enviar a la cola'}
             </button>
-          </div>
+          </form>
         </div>
 
         {/* Social Icons Bottom Left */}
