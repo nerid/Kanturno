@@ -2,15 +2,16 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
-// ⚠️ IMPORTANTE: El administrador debe reemplazar esto con las credenciales de su proyecto Firebase
+// ⚠️ Credenciales añadidas automáticamente
 const firebaseConfig = {
-  apiKey: "API_KEY_PLACEHOLDER",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+  apiKey: "AIzaSyAzoxT6OgNHrtFuD6cZtOuGiTsfBq27GH8",
+  authDomain: "kanturno.firebaseapp.com",
+  databaseURL: "https://kanturno-default-rtdb.firebaseio.com",
+  projectId: "kanturno",
+  storageBucket: "kanturno.firebasestorage.app",
+  messagingSenderId: "769477433569",
+  appId: "1:769477433569:web:0234280a651141658fffa0",
+  measurementId: "G-1Q2G4Q82WP"
 };
 
 import type { FirebaseApp } from 'firebase/app';
