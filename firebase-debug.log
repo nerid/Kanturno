@@ -1,0 +1,84 @@
+[debug] [2026-05-25T02:06:14.666Z] ----------------------------------------------------------------------
+[debug] [2026-05-25T02:06:14.670Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Master\AppData\Local\npm-cache\_npx\7750544ccf494d8b\node_modules\firebase-tools\lib\bin\firebase.js projects:create kanturno-app-2026 -n Kanturno
+[debug] [2026-05-25T02:06:14.670Z] CLI Version:   15.18.0
+[debug] [2026-05-25T02:06:14.670Z] Platform:      win32
+[debug] [2026-05-25T02:06:14.671Z] Node Version:  v24.13.1
+[debug] [2026-05-25T02:06:14.671Z] Time:          Sun May 24 2026 20:06:14 GMT-0600 (hora estándar central)
+[debug] [2026-05-25T02:06:14.671Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-25T02:06:14.674Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-05-25T02:06:14.705Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-25T02:06:14.706Z] > authorizing via signed-in user (nerideliezer@gmail.com)
+[debug] [2026-05-25T02:06:14.709Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:14.709Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:14.709Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2026-05-25T02:06:14.709Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"kanturno-app-2026","name":"Kanturno"}
+[debug] [2026-05-25T02:06:15.016Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-05-25T02:06:15.017Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-05-25T02:06:15.069Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2026-05-25T02:06:15.070Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.6286643774344406806"}
+[debug] [2026-05-25T02:06:15.071Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:15.072Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:15.072Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 [none]
+[debug] [2026-05-25T02:06:15.379Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 200
+[debug] [2026-05-25T02:06:15.379Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 {"name":"operations/create_project.global.6286643774344406806"}
+[debug] [2026-05-25T02:06:15.879Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:15.881Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:15.881Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:15.882Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 [none]
+[debug] [2026-05-25T02:06:15.968Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 200
+[debug] [2026-05-25T02:06:15.968Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 {"name":"operations/create_project.global.6286643774344406806"}
+[debug] [2026-05-25T02:06:16.982Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:16.983Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:16.984Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:16.984Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 [none]
+[debug] [2026-05-25T02:06:17.094Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 200
+[debug] [2026-05-25T02:06:17.095Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6286643774344406806 {"name":"operations/create_project.global.6286643774344406806","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"47940343990","projectId":"kanturno-app-2026","lifecycleState":"ACTIVE","name":"Kanturno","createTime":"2026-05-25T02:06:15.187Z"}}
+[debug] [2026-05-25T02:06:17.096Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:17.096Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:17.097Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/kanturno-app-2026:addFirebase [none]
+[debug] [2026-05-25T02:06:19.084Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/kanturno-app-2026:addFirebase 200
+[debug] [2026-05-25T02:06:19.085Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/kanturno-app-2026:addFirebase {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:19.086Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:19.086Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:19.087Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:27.089Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:27.090Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:27.605Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:27.606Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:27.606Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:27.607Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:27.910Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:27.911Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:28.913Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:28.914Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:28.914Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:28.915Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:29.086Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:29.086Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:31.086Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:31.087Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:31.087Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:31.088Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:31.291Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:31.291Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:35.301Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:35.301Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:35.301Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:35.301Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:35.480Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:35.480Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] [2026-05-25T02:06:43.495Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-05-25T02:06:43.496Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:43.496Z] Checked if tokens are valid: true, expires at: 1779678281501
+[debug] [2026-05-25T02:06:43.496Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 [none]
+[debug] [2026-05-25T02:06:43.892Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 200
+[debug] [2026-05-25T02:06:43.892Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3 {"name":"operations/workflows/NTc2OWNjZmYtNTk4Ni00ZGQzLWI5ZTQtMTFlMGQ1MTg2YTI3"}
+[debug] Task index 0 failed: timed out after 30000ms.
+[debug] [2026-05-25T02:06:49.097Z] Task index 0 failed: timed out after 30000ms.
+[debug] [2026-05-25T02:06:49.099Z] FirebaseError: Task index 0 failed: timed out after 30000ms.
+    at Timeout.<anonymous> (C:\Users\Master\AppData\Local\npm-cache\_npx\7750544ccf494d8b\node_modules\firebase-tools\lib\throttler\throttler.js:171:24)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.

@@ -57,9 +57,6 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="numPersonas">Personas en la mesa</label>
-                            <input type="number" id="numPersonas" name="numPersonas" required min="1" max="12" placeholder="4">
                         </div>
                         <div class="form-group">
                             <label for="cancion">Canción</label>
@@ -77,18 +74,6 @@
                 <div id="mensajeFormulario" class="mensaje-flotante"></div>
             </section>
 
-            <!-- Panel de control rápido -->
-            <section class="admin-section">
-                <h2>Control rápido</h2>
-                <div class="admin-buttons">
-                    <button id="btnSimularFin" class="btn-secondary">⏭️ Simular fin de canción</button>
-                    <button id="btnResetear" class="btn-danger">🔄 Resetear todo (noche nueva)</button>
-                </div>
-                <div id="estadisticas" class="estadisticas">
-                    <p><span class="stat-label">Total canciones hoy:</span> <span id="totalCanciones">0</span></p>
-                    <p><span class="stat-label">Mesas activas:</span> <span id="mesasActivas">0</span></p>
-                </div>
-            </section>
         </main>
 
         <footer>
@@ -96,6 +81,9 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module">
+        import { initUser } from './script.js';
+        document.addEventListener('DOMContentLoaded', initUser);
+    </script>
 </body>
 </html>

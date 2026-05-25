@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Kanturno - Panel de Administración</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initAdmin } from './script.js';
+        document.addEventListener('DOMContentLoaded', initAdmin);
+    </script>
+</head>
+<body class="admin-body">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🎛️</span>
+                <h1>Kanturno Admin</h1>
+            </div>
+            <p class="subtitle">Panel de control de turnos y mesas</p>
+        </header>
+
+        <main>
+            <!-- Panel de Control Principal -->
+            <section class="admin-section">
+                <h2>Acciones Rápidas</h2>
+                <div class="admin-buttons">
+                    <button id="btnSiguiente" class="btn-primary">⏭️ Siguiente Turno</button>
+                    <button id="btnResetear" class="btn-danger">🔄 Resetear Noche</button>
+                </div>
+                <div id="estadisticas" class="estadisticas">
+                    <p><span class="stat-label">Total canciones cantadas:</span> <span id="totalCanciones">0</span></p>
+                    <p><span class="stat-label">Mesas activas:</span> <span id="mesasActivas">0</span></p>
+                </div>
+            </section>
+
+            <!-- Gestión de Mesas -->
+            <section class="formulario-section">
+                <h2>Registrar Mesa</h2>
+                <form id="formMesa" class="premium-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numeroMesa">Número de mesa</label>
+                            <input type="number" id="numeroMesa" required min="1" placeholder="Ej: 1">
+                        </div>
+                        <div class="form-group">
+                            <label for="numPersonas">Personas en la mesa</label>
+                            <input type="number" id="numPersonas" required min="1" max="20" placeholder="Ej: 4">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-secondary" style="width:100%; border:1px solid var(--accent); color:var(--accent)">Registrar / Actualizar Mesa</button>
+                </form>
+                <div id="mensajeMesa" class="mensaje-flotante"></div>
+                
+                <h3 style="margin-top:20px; margin-bottom:10px;">Mesas Registradas</h3>
+                <div id="listaMesas" class="mesas-grid">
+                    <p class="small" style="color:var(--text-secondary)">No hay mesas registradas</p>
+                </div>
+            </section>
+
+            <!-- Turno actual -->
+            <section class="turno-actual-section">
+                <h2>Cantando Ahora</h2>
+                <div id="turnoActualContainer" class="turno-card premium-card">
+                    <div class="empty-turno-message">
+                        <p>No hay ninguna canción en curso</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Próximas canciones -->
+            <section class="cola-section">
+                <h2>Cola de Canciones</h2>
+                <div id="colaContainer" class="cola-list">
+                    <div class="empty-cola-message">
+                        <p>📭 Cola vacía</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Kanturno Admin · <span id="timestampActualizacion"></span></p>
+        </footer>
+    </div>
+</body>
+</html>
