@@ -13,9 +13,9 @@ const firebaseConfig = {
   appId: "APP_ID"
 };
 
-import { FirebaseApp } from 'firebase/app';
-import { Database } from 'firebase/database';
-import { Auth } from 'firebase/auth';
+import type { FirebaseApp } from 'firebase/app';
+import type { Database } from 'firebase/database';
+import type { Auth } from 'firebase/auth';
 
 let app: FirebaseApp | undefined;
 let db: Database | undefined;
