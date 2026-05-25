@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ref, onValue, push, set, update, remove } from 'firebase/database';
-import { db } from './firebase';
+import { ref, onValue, push, set } from 'firebase/database';
+import { signInWithPopup, onAuthStateChanged, User } from 'firebase/auth';
+import { db, auth, googleProvider } from './firebase';
 
 export interface Solicitud {
   id: string;
@@ -77,3 +78,41 @@ export const agregarSolicitud = async (solicitudData: Omit<Solicitud, 'id' | 'es
   });
   return { exito: true, msj: "Enviado con éxito" };
 };
+
+// ========================
+// AUTHENTICATION HOOKS
+// ========================
+export function useKanturnoAuth() {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const loginWithGoogle = async () => {
+    if (!auth || !googleProvider) return { exito: false, msj: "Firebase Auth no está configurado." };
+    try {
+      await signInWithPopup(auth, googleProvider);
+      return { exito: true };
+    } catch (error: any) {
+      console.error(error);
+      return { exito: false, msj: error.message };
+    }
+  };
+
+  const logout = async () => {
+    if (!auth) return;
+    await auth.signOut();
+  };
+
+  return { user, loading, loginWithGoogle, logout };
+}

@@ -22,6 +22,8 @@ let app: FirebaseApp | undefined;
 let db: Database | undefined;
 let auth: Auth | undefined;
 
+import { GoogleAuthProvider } from 'firebase/auth';
+
 try {
   app = initializeApp(firebaseConfig);
   db = getDatabase(app);
@@ -30,4 +32,6 @@ try {
   console.warn("Firebase no está configurado. La app funcionará de modo estático hasta que se agreguen las credenciales en src/lib/firebase.ts");
 }
 
-export { db, auth };
+const googleProvider = new GoogleAuthProvider();
+
+export { db, auth, googleProvider };
