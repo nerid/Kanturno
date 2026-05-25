@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ref, onValue, push, set } from 'firebase/database';
-import { signInWithPopup, onAuthStateChanged, User } from 'firebase/auth';
+import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import type { User } from 'firebase/auth';
 import { db, auth, googleProvider } from './firebase';
 
 export interface Solicitud {
