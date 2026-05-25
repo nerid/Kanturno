@@ -172,7 +172,7 @@ function mostrarMensaje(elementId, texto, tipo) {
 // ========================
 // LÓGICA DE USUARIO
 // ========================
-export function initUser() {
+function initUser() {
     cargarDatos();
     renderizarTurnoActual();
     renderizarCola();
@@ -234,7 +234,7 @@ export function initUser() {
 // ========================
 // LÓGICA DE ADMINISTRADOR
 // ========================
-export function initAdmin() {
+function initAdmin() {
     cargarDatos();
     renderizarTurnoActual();
     renderizarCola();
@@ -368,3 +368,14 @@ function actualizarEstadisticasAdmin() {
     if (tC) tC.innerText = cantadas;
     if (mA) mA.innerText = Object.keys(mesas).length;
 }
+
+// Autoinicialización basada en la página actual
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('formMesa')) {
+        // Estamos en admin.html
+        initAdmin();
+    } else if (document.getElementById('solicitudForm')) {
+        // Estamos en index.html
+        initUser();
+    }
+});
