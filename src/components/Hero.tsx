@@ -34,7 +34,7 @@ export const Hero = () => {
         <div className="flex-1 flex flex-col lg:flex-row items-center justify-between relative mt-8 lg:mt-0 lg:ml-12 max-w-[1400px] gap-8">
           
           {/* Form Side (Left on Desktop, Bottom on Mobile) */}
-          <div className="w-full lg:w-[450px] flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0">
+          <div id="pedir" className="w-full lg:w-[450px] flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0">
             <RequestFormCTA />
           </div>
 

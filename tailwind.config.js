@@ -12,9 +12,9 @@ export default {
         neon: '#6FFF00'
       },
       fontFamily: {
-        grotesk: ['Anton', 'sans-serif'],
-        condiment: ['Condiment', 'cursive'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
+        grotesk: ['"Space Grotesk"', 'sans-serif'],
+        condiment: ['"Pacifico"', 'cursive'],
+        mono: ['"Outfit"', 'sans-serif'],
       }
     },
   },
