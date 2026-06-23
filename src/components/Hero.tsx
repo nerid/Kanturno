@@ -4,14 +4,11 @@ import { Mail, MessageCircle, Share2 } from 'lucide-react';
 export const Hero = () => {
   return (
     <section className="relative w-full h-screen min-h-[600px] flex justify-center bg-background rounded-b-[32px] overflow-hidden">
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
+      {/* Image Background */}
+      <img
+        src="/space_disco_astronaut.png"
+        alt="Space Disco Astronaut"
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4"
       />
       
       {/* Container */}
