@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MessageCircle, Share2 } from 'lucide-react';
+import { RequestFormCTA } from './RequestFormCTA';
 
 export const Hero = () => {
   return (
@@ -10,7 +10,7 @@ export const Hero = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover object-center lg:object-[75%_center] z-0"
         src="/astronauta_disco.mp4"
       />
       
@@ -30,46 +30,28 @@ export const Hero = () => {
           <div className="w-[100px] hidden lg:block" /> {/* Spacer */}
         </header>
 
-        {/* Content */}
-        <div className="flex-1 flex flex-col justify-center relative mt-12 lg:mt-0 lg:ml-32 max-w-[780px]">
-          <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] uppercase leading-[1.05] md:leading-[1] relative">
-            Siente la música<br />
-            y ( rompe ) tus límites
-            
-            <span className="font-condiment absolute right-0 top-0 sm:top-[-20px] text-neon text-[24px] sm:text-[36px] md:text-[48px] -rotate-1 mix-blend-exclusion opacity-90 normal-case" style={{ textTransform: 'none' }}>
-              Karaoke Night
-            </span>
-          </h1>
-
-          {/* Mobile CTA */}
-          <div className="flex lg:hidden mt-8 justify-start">
-            <a href="#pedir" className="bg-neon text-black font-grotesk text-[18px] uppercase px-8 py-4 rounded-[16px] hover:bg-white transition-colors">
-              Pedir Canción Ahora
-            </a>
+        {/* Content Split Layout */}
+        <div className="flex-1 flex flex-col lg:flex-row items-center justify-between relative mt-8 lg:mt-0 lg:ml-12 max-w-[1400px] gap-8">
+          
+          {/* Form Side (Left on Desktop, Bottom on Mobile) */}
+          <div className="w-full lg:w-[450px] flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0">
+            <RequestFormCTA />
           </div>
-        </div>
 
-        {/* Desktop CTA Floating */}
-        <div className="hidden lg:flex flex-col gap-4 absolute right-12 top-1/2 -translate-y-1/2">
-          <a href="#pedir" className="w-[80px] h-[80px] liquid-glass rounded-full flex flex-col items-center justify-center hover:bg-neon hover:text-black transition-colors text-white group">
-            <span className="font-grotesk text-[10px] uppercase text-center leading-tight">Pedir<br/>Canción</span>
-          </a>
+          {/* Title Side (Right on Desktop, Top on Mobile) */}
+          <div className="w-full lg:w-auto order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right pointer-events-none">
+            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] uppercase leading-[1.05] relative drop-shadow-2xl">
+              Siente la música<br />
+              y rompe límites
+              
+              <span className="font-condiment absolute -bottom-8 lg:-bottom-12 right-0 text-neon text-[32px] sm:text-[48px] md:text-[60px] -rotate-2 mix-blend-plus-lighter opacity-100 normal-case" style={{ textTransform: 'none' }}>
+                Karaoke Night
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const SocialButtons = () => (
-  <>
-    <button className="w-[56px] h-[56px] liquid-glass rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition-colors">
-      <Mail className="w-[20px] h-[20px]" />
-    </button>
-    <button className="w-[56px] h-[56px] liquid-glass rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition-colors">
-      <MessageCircle className="w-[20px] h-[20px]" />
-    </button>
-    <button className="w-[56px] h-[56px] liquid-glass rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition-colors">
-      <Share2 className="w-[20px] h-[20px]" />
-    </button>
-  </>
-);
