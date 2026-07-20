@@ -3,7 +3,7 @@ import { RequestFormCTA } from './RequestFormCTA';
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex justify-center bg-background rounded-b-[32px] overflow-hidden">
+    <section className="relative w-full min-h-screen flex justify-center bg-background rounded-b-[32px] overflow-hidden pb-12 lg:pb-0">
       {/* Video Background */}
       <video
         autoPlay
