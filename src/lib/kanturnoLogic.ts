@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ref, onValue, push, set } from 'firebase/database';
-import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { signInWithRedirect, getRedirectResult, onAuthStateChanged } from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { db, auth, googleProvider } from './firebase';
 
@@ -92,6 +92,13 @@ export function useKanturnoAuth() {
       setLoading(false);
       return;
     }
+    
+    // Capturar el resultado si venimos de un redirect de Google
+    getRedirectResult(auth).catch(err => {
+      console.error("Error en redirección:", err);
+      alert("Error de autenticación: " + err.message);
+    });
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -102,7 +109,8 @@ export function useKanturnoAuth() {
   const loginWithGoogle = async () => {
     if (!auth || !googleProvider) return { exito: false, msj: "Firebase Auth no está configurado." };
     try {
-      await signInWithPopup(auth, googleProvider);
+      // Usamos redirect porque en celulares (especialmente iOS e in-app browsers) los popups fallan silenciosamente.
+      await signInWithRedirect(auth, googleProvider);
       return { exito: true };
     } catch (error: any) {
       console.error(error);
