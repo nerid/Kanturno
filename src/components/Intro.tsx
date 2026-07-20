@@ -9,7 +9,7 @@ export const Intro = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_151551_992053d1-3d3e-4b8c-abac-45f22158f411.mp4"
+        src="/astronauta_disco.mp4"
       />
       
       <div className="relative z-10 w-full max-w-[1831px] px-6 md:px-12 flex flex-col justify-between">
@@ -20,7 +20,7 @@ export const Intro = () => {
             ¡Hola!<br />
             Soy Kanturno
             
-            <span className="font-condiment absolute bottom-0 right-[-40px] lg:right-[-80px] text-neon text-[36px] sm:text-[52px] lg:text-[68px] rotate-[-5deg] mix-blend-exclusion normal-case" style={{ textTransform: 'none' }}>
+            <span className="font-condiment block mt-4 lg:mt-6 text-neon text-[36px] sm:text-[52px] lg:text-[68px] rotate-[-5deg] mix-blend-exclusion normal-case" style={{ textTransform: 'none' }}>
               Verificación
             </span>
           </h2>

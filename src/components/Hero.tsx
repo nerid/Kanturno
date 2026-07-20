@@ -11,7 +11,7 @@ export const Hero = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover object-center lg:object-[75%_center] z-0"
-        src="/astronauta_disco.mp4"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_151551_992053d1-3d3e-4b8c-abac-45f22158f411.mp4"
       />
       
       {/* Container */}
