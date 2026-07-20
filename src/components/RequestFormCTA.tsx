@@ -11,9 +11,14 @@ export const RequestFormCTA = () => {
 
   const handleLogin = async () => {
     setMensaje('');
-    const res = await loginWithGoogle();
-    if (res && !res.exito) {
-      setMensaje("Error: " + (res.msj || "No se pudo iniciar sesión"));
+    try {
+      const res = await loginWithGoogle();
+      if (res && !res.exito) {
+        setMensaje("Error: " + (res.msj || "No se pudo iniciar sesión"));
+        alert("Error de inicio de sesión: " + (res.msj || "Por favor, autoriza en tu navegador."));
+      }
+    } catch (e: any) {
+      alert("Error: " + e.message);
     }
   };
 
@@ -39,7 +44,7 @@ export const RequestFormCTA = () => {
   };
 
   return (
-    <div className="w-full liquid-glass p-6 rounded-[24px] backdrop-blur-md border border-white/10 shadow-2xl relative overflow-hidden">
+    <div className="w-full liquid-glass p-6 rounded-[24px] backdrop-blur-md border border-white/10 shadow-2xl relative">
       {/* Decorative gradients */}
       <div className="absolute -top-24 -left-24 w-48 h-48 bg-neon/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl"></div>

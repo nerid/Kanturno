@@ -3,7 +3,7 @@ import { RequestFormCTA } from './RequestFormCTA';
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen flex justify-center bg-background rounded-b-[32px] overflow-hidden pb-12 lg:pb-0">
+    <section className="relative w-full min-h-[100svh] flex flex-col justify-center bg-background rounded-b-[32px] overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -15,9 +15,9 @@ export const Hero = () => {
       />
       
       {/* Container */}
-      <div className="relative z-10 w-full max-w-[1831px] px-6 md:px-12 pt-8 flex flex-col">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 py-12 lg:py-24 flex flex-col h-full">
         {/* Header */}
-        <header className="flex items-center justify-between">
+        <header className="flex items-center justify-between mb-8 lg:mb-16">
           <div className="font-grotesk text-[16px] uppercase tracking-wide">Kanturno.App</div>
           
           <nav className="hidden lg:flex items-center gap-8 liquid-glass rounded-[28px] px-[52px] py-[24px]">
@@ -31,24 +31,25 @@ export const Hero = () => {
         </header>
 
         {/* Content Split Layout */}
-        <div className="flex-1 flex flex-col lg:flex-row items-center justify-between relative mt-8 lg:mt-0 lg:ml-12 max-w-[1400px] gap-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-8 flex-1">
           
-          {/* Form Side (Left on Desktop, Bottom on Mobile) */}
-          <div id="pedir" className="w-full lg:w-[450px] flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0">
-            <RequestFormCTA />
-          </div>
-
           {/* Title Side (Right on Desktop, Top on Mobile) */}
-          <div className="w-full lg:w-auto order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right pointer-events-none">
-            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] uppercase leading-[1.05] relative drop-shadow-2xl pb-8 lg:pb-12">
+          <div className="w-full lg:w-auto order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right pointer-events-none mt-8 lg:mt-0">
+            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] uppercase leading-[1.05] relative drop-shadow-2xl">
               Siente la música<br />
               y rompe límites
               
-              <span className="font-condiment absolute bottom-0 right-0 text-neon text-[32px] sm:text-[48px] md:text-[60px] -rotate-2 mix-blend-plus-lighter opacity-100 normal-case" style={{ textTransform: 'none' }}>
+              <span className="font-condiment absolute -bottom-4 lg:-bottom-6 right-0 text-neon text-[32px] sm:text-[48px] md:text-[60px] -rotate-2 mix-blend-plus-lighter opacity-100 normal-case" style={{ textTransform: 'none' }}>
                 Karaoke Night
               </span>
             </h1>
           </div>
+          
+          {/* Form Side (Left on Desktop, Bottom on Mobile) */}
+          <div id="pedir" className="w-full lg:w-[420px] order-2 lg:order-1 relative z-20">
+            <RequestFormCTA />
+          </div>
+
         </div>
       </div>
     </section>
