@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: #010828;
+  --color-cream: #EFF4FF;
+  --color-neon: #6FFF00;
+
+  --font-grotesk: "Space Grotesk", sans-serif;
+  --font-condiment: "Pacifico", cursive;
+  --font-mono: "Outfit", sans-serif;
+}
 
 :root {
   background-color: #010828;
