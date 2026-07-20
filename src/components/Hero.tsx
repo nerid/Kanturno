@@ -40,11 +40,11 @@ export const Hero = () => {
 
           {/* Title Side (Right on Desktop, Top on Mobile) */}
           <div className="w-full lg:w-auto order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right pointer-events-none">
-            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] uppercase leading-[1.05] relative drop-shadow-2xl">
+            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] uppercase leading-[1.05] relative drop-shadow-2xl pb-8 lg:pb-12">
               Siente la música<br />
               y rompe límites
               
-              <span className="font-condiment absolute -bottom-8 lg:-bottom-12 right-0 text-neon text-[32px] sm:text-[48px] md:text-[60px] -rotate-2 mix-blend-plus-lighter opacity-100 normal-case" style={{ textTransform: 'none' }}>
+              <span className="font-condiment absolute bottom-0 right-0 text-neon text-[32px] sm:text-[48px] md:text-[60px] -rotate-2 mix-blend-plus-lighter opacity-100 normal-case" style={{ textTransform: 'none' }}>
                 Karaoke Night
               </span>
             </h1>
