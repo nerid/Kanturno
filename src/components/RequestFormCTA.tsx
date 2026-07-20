@@ -5,6 +5,7 @@ import { agregarSolicitud, useKanturnoAuth } from '../lib/kanturnoLogic';
 export const RequestFormCTA = () => {
   const { user, loading, loginWithGoogle, logout } = useKanturnoAuth();
   const [nombre, setNombre] = useState('');
+  const [mesa, setMesa] = useState('');
   const [cancion, setCancion] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,18 +29,21 @@ export const RequestFormCTA = () => {
     if (!nombre || !cancion) return;
     
     setIsSubmitting(true);
-    // Asumiendo mesa 1 por defecto hasta que implementemos validación QR en otra parte
+    // Combina el nombre con la mesa si existe
+    const nombreFinal = mesa.trim() ? `${nombre} (Mesa ${mesa})` : nombre;
+    
     const res = await agregarSolicitud({
-      nombre_cantante: nombre,
+      nombre_cantante: nombreFinal,
       cancion: cancion,
-      interprete: 'Desconocido', // Se podría agregar otro campo
-      id_mesa: '1'
+      interprete: 'Desconocido', 
+      id_mesa: mesa || '1'
     });
     
     setMensaje(res.msj);
     setIsSubmitting(false);
     if(res.exito) {
       setNombre('');
+      setMesa('');
       setCancion('');
       setEnviado(true);
       setTimeout(() => setEnviado(false), 5000); // Volver al form tras 5s
@@ -91,13 +95,22 @@ export const RequestFormCTA = () => {
               </button>
             </div>
             {mensaje && <div className="text-neon font-mono mb-4 text-sm bg-black/30 p-2 rounded">{mensaje}</div>}
-            <input 
-              type="text" 
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              placeholder="Nombre del cantante" 
-              className="w-full bg-black/20 border-b border-white/20 p-3 mb-4 font-mono text-sm focus:outline-none focus:border-neon focus:bg-black/40 transition-all text-white uppercase rounded-t-md"
-            />
+            <div className="flex gap-4 mb-4">
+              <input 
+                type="text" 
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                placeholder="Nombre cantante" 
+                className="w-2/3 bg-black/20 border-b border-white/20 p-3 font-mono text-sm focus:outline-none focus:border-neon focus:bg-black/40 transition-all text-white uppercase rounded-t-md"
+              />
+              <input 
+                type="text" 
+                value={mesa}
+                onChange={(e) => setMesa(e.target.value)}
+                placeholder="Mesa #" 
+                className="w-1/3 bg-black/20 border-b border-white/20 p-3 font-mono text-sm focus:outline-none focus:border-neon focus:bg-black/40 transition-all text-white uppercase rounded-t-md"
+              />
+            </div>
             <input 
               type="text" 
               value={cancion}

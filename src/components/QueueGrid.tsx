@@ -63,22 +63,22 @@ export const QueueGrid = () => {
                   src={vidUrl}
                 />
                 
-                {/* Overlay Text */}
-                <div className="absolute inset-x-0 top-6 px-6 z-10">
-                  <h3 className="font-grotesk text-2xl uppercase shadow-black drop-shadow-md">{item.nombre_cantante}</h3>
-                  <p className="font-mono text-sm opacity-90 drop-shadow-md uppercase">{item.cancion}</p>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="absolute bottom-4 inset-x-4 liquid-glass rounded-[20px] px-5 py-4 flex items-center justify-between z-10">
+                {/* Top Bar (Priority) */}
+                <div className="absolute top-4 inset-x-4 liquid-glass rounded-[20px] px-5 py-4 flex items-center justify-between z-10">
                   <div className="flex flex-col">
-                    <span className="font-mono text-[11px] text-cream/70 uppercase">PRIORIDAD:</span>
-                    <span className="font-mono text-[16px] font-bold">{item.prioridad ? item.prioridad.toFixed(1) : '0.0'}/10</span>
+                    <span className="font-mono text-[11px] text-cream/70 uppercase shadow-black drop-shadow-md">PRIORIDAD:</span>
+                    <span className="font-mono text-[16px] font-bold shadow-black drop-shadow-md">{item.prioridad ? item.prioridad.toFixed(1) : '0.0'}/10</span>
                   </div>
                   
                   <button className="w-[48px] h-[48px] rounded-full bg-gradient-to-br from-[#b724ff] to-[#7c3aed] flex items-center justify-center shadow-lg shadow-purple-500/50 group-hover:scale-110 transition-transform">
                     <ChevronRight className="w-6 h-6 text-white" />
                   </button>
+                </div>
+
+                {/* Bottom Text (Name/Song) */}
+                <div className="absolute inset-x-0 bottom-0 p-6 pt-12 bg-gradient-to-t from-[#010828]/90 to-transparent z-10">
+                  <h3 className="font-grotesk text-2xl uppercase shadow-black drop-shadow-lg truncate">{item.nombre_cantante}</h3>
+                  <p className="font-mono text-sm opacity-90 drop-shadow-lg uppercase truncate">{item.cancion}</p>
                 </div>
               </div>
             </div>
