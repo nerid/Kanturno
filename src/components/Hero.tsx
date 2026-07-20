@@ -21,10 +21,10 @@ export const Hero = () => {
           <div className="font-grotesk text-[16px] uppercase tracking-wide">Kanturno.App</div>
           
           <nav className="hidden lg:flex items-center gap-8 liquid-glass rounded-[28px] px-[52px] py-[24px]">
-            <a href="#inicio" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Inicio</a>
-            <a href="#cola" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Cola</a>
-            <a href="#pedir" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">Pedir Canción</a>
-            <a href="/admin" className="font-grotesk text-[13px] uppercase text-neon/80 hover:text-neon transition-colors">Admin</a>
+            <a href="#inicio" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('inicio')?.scrollIntoView({behavior: 'smooth'})}}>Inicio</a>
+            <a href="#cola" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('cola')?.scrollIntoView({behavior: 'smooth'})}}>Cola</a>
+            <a href="#pedir" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('pedir')?.scrollIntoView({behavior: 'smooth'})}}>Pedir Canción</a>
+            <a href="/admin" target="_blank" className="font-grotesk text-[13px] uppercase text-neon/80 hover:text-neon transition-colors">Admin</a>
           </nav>
           
           <div className="w-[100px] hidden lg:block" /> {/* Spacer */}

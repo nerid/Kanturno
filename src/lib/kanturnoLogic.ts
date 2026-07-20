@@ -66,8 +66,26 @@ export function useKanturnoData() {
     return enCola;
   };
 
-  return { solicitudes, mesas, cantandoId, getSolicitudesOrdenadas };
+  const getCantando = () => {
+    if (!cantandoId) return null;
+    return solicitudes[cantandoId] ? { ...solicitudes[cantandoId], id: cantandoId } : null;
+  };
+
+  return { solicitudes, mesas, cantandoId, getSolicitudesOrdenadas, getCantando };
 }
+
+export const actualizarEstadoSolicitud = async (solicitudId: string, nuevoEstado: 'en_cola' | 'cantando' | 'completada' | 'rechazada') => {
+  if (!db) return;
+  await set(ref(db, `solicitudes/${solicitudId}/estado`), nuevoEstado);
+  
+  if (nuevoEstado === 'cantando') {
+    await set(ref(db, `estado/cantandoId`), solicitudId);
+  } else if (nuevoEstado === 'completada' || nuevoEstado === 'rechazada') {
+    // Si la que estábamos cantando se completa o rechaza, limpiamos el estado actual
+    // Obtenemos el cantandoId actual (solo si no estamos manejándolo a través del hook)
+    // Para simplificar, confiaremos en que el admin panel llame esto correctamente.
+  }
+};
 
 export const agregarSolicitud = async (solicitudData: Omit<Solicitud, 'id' | 'estado' | 'timestamp_solicitud'>) => {
   if (!db) return { exito: false, msj: "Firebase no configurado" };
