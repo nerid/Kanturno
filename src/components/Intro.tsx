@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Intro = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    '/assets/astronaut_singing_1_1784561857620.png',
+    '/assets/astronaut_singing_2_1784561868781.png',
+    '/assets/astronaut_dj_1784561878999.png'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative w-full min-h-[80vh] flex justify-center bg-background py-16 md:py-24 overflow-hidden">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-        src="/astronauta_disco.mp4"
-      />
+      
+      {/* Background Images Crossfade */}
+      {images.map((img, index) => (
+        <div
+          key={img}
+          className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 z-0 ${index === currentImage ? 'opacity-40' : 'opacity-0'}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
       
       <div className="relative z-10 w-full max-w-[1831px] px-6 md:px-12 flex flex-col justify-between">
         
